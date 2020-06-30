@@ -1,0 +1,10 @@
+{
+  "include": ["src/**/*", ".eslintrc.js", "*.config.js"],
+  "exclude": ["node_modules/**/*", "public/**/*"],
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "types": ["svelte"],
+    "moduleResolution": "node"
+  }
+}
