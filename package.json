@@ -4,14 +4,18 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public",
+    "svelte-check": "svelte-check"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@rollup/plugin-typescript": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "autoprefixer": "^9.8.4",
+    "cssnano": "^4.1.10",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-typescript": "^8.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -24,7 +28,9 @@
     "rollup-plugin-livereload": "^1.3.0",
     "rollup-plugin-svelte": "^5.2.3",
     "rollup-plugin-terser": "^6.1.0",
+    "sass": "^1.26.10",
     "svelte": "^3.23.2",
+    "svelte-check": "^0.1.45",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
     "typescript": "^3.9.6"

@@ -1,10 +1,14 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
+
+const preProcessConf = require('./svelte.config');
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,12 +20,10 @@ function serve() {
       if (!started) {
         started = true;
 
-        /* eslint-disable @typescript-eslint/no-var-requires, global-require */
         require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
           stdio: ['ignore', 'inherit', 'inherit'],
           shell: true,
         });
-        /* eslint-enable @typescript-eslint/no-var-requires, global-require */
       }
     },
   };
@@ -30,7 +32,7 @@ function serve() {
 export default {
   input: 'src/main.ts',
   output: {
-    sourcemap: true,
+    sourcemap: !production,
     format: 'iife',
     name: 'app',
     file: 'public/build/bundle.js',
@@ -44,7 +46,7 @@ export default {
       css: (css) => {
         css.write('public/build/bundle.css');
       },
-      preprocess: sveltePreprocess(),
+      preprocess: { ...preProcessConf.preprocess, ...{ sourceMap: !production } },
     }),
 
     // If you have external dependencies installed from
