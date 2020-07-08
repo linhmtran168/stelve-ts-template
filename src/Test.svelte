@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let name;
+  export let name: string;
 
   let buttonText = 'Button'
   let clickCount: number = 0;
