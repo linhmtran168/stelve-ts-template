@@ -3,10 +3,21 @@
   "exclude": ["node_modules/**/*", "public/**/*"],
   "compilerOptions": {
     "target": "es2015",
-    "module": "es2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "module": "esnext",
     "types": ["jest", "svelte"],
     "moduleResolution": "node",
     "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "baseUrl": "src",
     "rootDir": "src",
     "noEmit": true,
