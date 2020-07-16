@@ -4,7 +4,8 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
-    extraFileExtensions: ['.svelte'],
+    // eslint-plugin-svelte still doesn't support typescript
+    // extraFileExtensions: ['.svelte'],
   },
   rules: {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
@@ -12,17 +13,20 @@ module.exports = {
     'no-labels': 0,
     'no-restricted-syntax': 0,
   },
-  plugins: ['@typescript-eslint', 'svelte3'],
+  // eslint-plugin-svelte still doesn't support typescript
+  // plugins: ['@typescript-eslint', 'svelte3'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
   ],
-  overrides: [
-    {
-      files: ['*.svelte'],
-      processor: 'svelte3/svelte3',
-    },
-  ],
+  // eslint-plugin-svelte still doesn't support typescript
+  // overrides: [
+  //   {
+  //     files: ['*.svelte'],
+  //     processor: 'svelte3/svelte3',
+  //   },
+  // ],
 };

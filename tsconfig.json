@@ -1,25 +1,23 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "include": ["src/**/*", "*.config.js", ".eslintrc.js"],
   "exclude": ["node_modules/**/*", "public/**/*"],
   "compilerOptions": {
-    "target": "es2015",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "module": "esnext",
+    "types": ["jest", "svelte"],
+    "baseUrl": "src",
+    "rootDir": "src",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "module": "esnext",
-    "types": ["jest", "svelte"],
     "moduleResolution": "node",
-    "allowJs": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "src",
-    "rootDir": "src",
+    "allowJs": true,
     "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noErrorTruncation": true
   }
 }
